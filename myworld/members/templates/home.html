@@ -1,0 +1,50 @@
+{% extends 'template.html'  %}
+{% load static %}
+
+{% block mymessage %}
+<link rel="stylesheet" href="{% static 'css/home_style.css' %}">
+<div class="Main">
+    {% for x in loaisp %}
+        <div class="Main1">
+            <div class="Main_header">
+                <a href="../ViewAllPd/{{x}}"> 
+                    
+                    <h2>{{x}}</h2>
+                    
+                </a>
+            </div>
+            <hr >
+            <div class="Main_Content">
+                <div class="Main_Content_1">
+                
+                {% for y in pd %}   
+                        {% if y.typepd == x  %}
+                                <div class="Main_Content_2">    
+                                    <a href="../ViewPd/{{y.idpd}}" class="SP1">
+                                        <div class="SP"> 
+                                            <div class="img">     
+                                                <img src="{% static y.imgpd %}">
+                                            </div>
+                                            <hr>
+                                            <div class="Content"> 
+                                                <div class="Content1">{{y.namepd}} </div>
+                                                
+                                                <div class="Content2"> <h3 style="color:red ;">{{y.price}}</h3> </div>
+                                                
+                                                <div class="Content3"><p style="font-size: 12px;">TP HCM</p>
+                                                    <p style="font-size: 12px;">{{y.amount}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            
+                            {%endif%}
+                        
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

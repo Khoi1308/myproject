@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+        <div class="Container">
+            <div class="Header">
+                <div class="Header-left">
+                    <a href="../home/">
+                        <img src="{% static 'images/logo1.png' %}">
+                    </a>
+                    <form method="GET">  
+                        <div class="Search">
+                            <div class="Search_input"> 
+                            <input type="text" Required name="Search" placeholder="Search">
+                            </div> 
+                            <div class="Search_button">
+                            <button>
+                                <i class='bx bx-search'></i>
+                            </button>
+                            </div>
+                        </div>
+                    </form>
+                 </div>
+               
+    
+               
+                <div class="Header-right">
+                    <ul class="cotten">
+                        {% if sigin.username != None %}
+                            <li>
+                                <a href="../cart/">
+                                    <i class='bx bx-cart' ></i>Cart({{Count}})</a>
+                            </li>
+                            <li>
+                                <a href="#"> 
+                                    <i class='bx bx-bell'></i>Notification </a>
+                            </li>
+                            <li>
+                                <a href="../service/">Service </a>
+                            </li>
+                            <li>
+                                <a href="../ViewProfile/"><i class='bx bx-user'></i> {{sigin.username}} </a>
+                            </li>
+                            <div class="Gach"></div>
+                            <li>
+                                <a href="../Logout/">Logout</a>
+                            </li>
+                        {% else %}
+                             <li>
+                                <a href="#">
+                                    <i class='bx bx-cart' ></i>Cart</a>
+                            </li>
+                            <li>
+                                <a href="#"> 
+                                    <i class='bx bx-bell'></i>Notification</a>
+                            </li>
+                            <li>
+                                <a href="#"> Service </a>
+                            </li>
+                            <li>
+                                <a href="../signup/">SignUp </a>
+                            </li>
+                            <div class="Gach"></div>
+                            <li>
+                                <a href="../signin/">SignIn</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div> 
+            {% block mymessage%}
+
+
+            {% endblock %}
+            <hr color="red" height="30px">
+            <div class="Footer"> 
+                <div class="Footer_1">
+                    <div class="Menber">
+                        <div class="Footer_header">  
+                        <h2>Developer team</h2>
+                        </div>
+                        <div class="Footer_Content">
+                        <ul>
+                            <li>Trần Quốc Bảo</li>
+                            <li>Hồ Đăng Cao</li>
+                            <li>Đỗ Đức Duy</li>
+                            <li>Dương Minh Anh Khôi </li>
+                            <li>Bùi Đăng Tuấn Kiệt</li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="Follow">
+                        <div class="Follow_header">     
+                        <h2>Follow us on</h2>
+                        </div>
+                        <div class="Follow_Content"> 
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="{% static 'images/Footer_Follow1.png' %}">
+                                        <span>Facebook</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="{% static 'images/Footer_Follow2.png' %}">
+                                        <span>Instagram</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="{% static 'images/Footer_Follow3.png' %}">
+                                        <span>Linkedin</span>
+                                    </a>    
+                                </li>
+                            </ul>
+                        </div>   
+                    </div>
+                    <div class="ThanhToan"> 
+                        <h2>Payment</h2>
+                        <img src="{% static 'images/Footer_thanhtoan.png' %}">
+                    </div>
+                    <div class="Ship">
+                        <h2> Shipping unit </h2>
+                        <img src="{% static 'images/Footer_ship.png' %}">
+                    </div>
+                </div>
+                <div class="Address"> 
+                    <div class="Address_header"> 
+                        <h2 style="text-align: center;" > Group 7</h2>
+                    </div >
+                    <div class="Address_Content">
+                        <p> Address : Trường Đại Học Khoa Học Tự Nhiên , 227 Nguyễn Văn Cừ, Phường 4 ,Quận 5, Thành Phố Hồ Chí Minh. Tổng đài hỗ trợ : 19001007. Email:Group7@gmail.com </p>
+                        <p> Chịu trách nhiệm nội dụng: Các thành viên nhóm 7</p>
+                        <p> </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block mymessage %}
+    <link  href="{% static 'css/ViewPd.css' %}" rel="stylesheet">
+    <div class="Main">
+        <div class="Main_view">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="img">
+                    <img src="{% static Pd.imgpd%}" alt="">
+                </div>
+                <div class="Main_view_content"> 
+                    <h2>{{Pd.namepd}}</h2>
+                    <div class="">Price: {{Pd.price}}</div>
+                    <div class="number">
+                        Please input amount <br>
+                        <input type="number" name="Input_number" min="1" value="1">
+                    </div>
+
+                    {% if sigin.password != None %}
+                    <div class="Button_oder">
+                        <button name="add">Add to cart</button>
+                    </div>
+                    {% endif %}
+
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    
+                </div>
+            </form>
+
+        </div>
+        <div class ="Main_Content">
+            {{Pd.descript | safe}}
+
+    </div>
+{% endblock %}

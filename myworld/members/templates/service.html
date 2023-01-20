@@ -1,0 +1,56 @@
+{%extends 'template.html' %}
+{% load static %}
+
+{%block mymessage%}
+<link rel="stylesheet" href="{% static 'css/serviceStyle.css' %}">
+<script src="{% static 'js/doneOk.js' %}"></script>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <script>bookOk()</script>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="Main">
+    <div Class='Conten'> 
+        <h1>Register Service</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="txt">
+                <div class="txt_tilte">Date </div>
+                <input type="date" Required name="Date" placeholder="Nhập ngày">
+            </div>
+            <div class="txt">
+                <div class="txt_tilte">Service detail</div> 
+                <select Required name="TypeSv" id="">
+                    {% for sv in SVs %}
+                        <option value="{{sv.idsv}}">{{sv.namesv}}</option>
+                    {% endfor %} 
+                </select>
+            </div>
+            <div class="txt">
+                <div class="txt_tilte"> Note </div>
+            <input type="text" class="Ghi_chu">
+            </div>
+            <div class='txt'>
+                <button>Registration</button>
+            </div>
+        </form>
+
+       {% if messages %}
+       <div class="messages">
+           {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <a>{{ message }}</a>
+            {% endif %}
+           {% endfor %}
+       </div>
+       {% endif %}
+       
+    </div>
+</div>     
+{%endblock%}

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký </title>
+    <link rel="stylesheet" href="{% static 'css/signupStyle.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="Main" style="background-image: url('{% static 'images/xemay2.jpg'%}');">
+            <div class="Main_Container">
+                <h1>SignUp</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                        <div class="txt">
+                            <input type="email" Required name='email' placeholder="Enter email">
+                        </div>
+                        <div class="txt">
+                            <input type="text" Required name='name' placeholder="Username">
+                        </div>
+                        <div class="txt">
+                            <input type="password" Required name='pass' placeholder="Password">
+                        </div>
+                        <div class="txt"> 
+                            <input type="password" Required name='pass1' placeholder="Confirm password">
+                        </div>
+                        <div class="button1"> 
+                            <input type="submit" value="SignUp">
+                        </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{%extends 'template.html' %}
+{% load static %}
+
+{%block mymessage%}
+<link rel="stylesheet" href="{% static 'css/EnterProfile.css' %}">
+<div class="Main">
+    <div Class='Conten'> 
+        <h1>Profile </h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="txt">
+                <div class="txt_tilte"> Full Name</div>
+                <input type="text"  Required name="Name" placeholder="Enter full name">
+            </div>
+            <div class="txt">
+                <div class="txt_tilte">Phone Numbers</div>
+                <input type="number"  Required name="Phone"  placeholder="Enter phonenumber">
+            </div>
+            <div class="txt">
+                <div class="txt_tilte">Delivery address </div>
+                <input type="text" Required name="Address" placeholder="Enter Address">
+            </div>
+            <div class="txt">
+                <div class="txt_tilte">Chosse avatar </div>
+                <input type="file" Required name="image" placeholder="Chosse avatar">
+            </div>
+            <div class="Button_Tick">
+                <button>SAVE</button> 
+            </div>
+        </form>
+    </div>
+</div>     
+{%endblock%}

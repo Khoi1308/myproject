@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" type='text/css' href="{% static 'css/signinStyle.css' %}">
+    <script src="{% static 'js/bill.js' %}"></script>
+</head>
+<body>
+    <div class="contianer">
+        <div class="Main" style="background-image: url('{% static 'images/xemay2.jpg'%}');">
+            <div class="Main_Container">
+                <h1>Login</h1>
+                <form method="POST">
+                        {% csrf_token %}
+                        <div class="txt">
+                            <input type="text" Required name="Username" placeholder="Username">
+                        </div>
+                        <div class="txt">
+                            <input type="password" Required name='pass' placeholder="Password">
+                        </div>
+                        <div class="Remenber">
+                            <div class="Remenber1">
+                                <input type="checkbox" >Remember
+                            </div>
+                            <div class="Remenber2">
+                                <a href="#">
+                                     Forgot Password
+                                </a>
+                            </div>
+                         </div>
+                        <div class="button1"> 
+                            <input type="submit" value="Login">
+                        </div>
+
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        
+                        <div class="DK"> 
+                            <a href="../signup">
+                                    SignUp?
+                            </a>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

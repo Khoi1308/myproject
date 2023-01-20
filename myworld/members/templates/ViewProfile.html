@@ -1,0 +1,55 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block mymessage %}
+    <link  href="{% static 'css/ViewProfile.css' %}" rel="stylesheet">
+    <div class="Main">
+       
+            <div class="Avatar"> 
+                <div class="img">
+                    <img src={% static Customer.Avatar %} alt="">
+                </div>
+                <div class="name">
+                    {{sigin.username}}
+                </div>
+            </div>
+            <div class="Decrip">
+                <div class="text">
+                    <div class="text1">
+                    Full Name:
+                    </div>
+                    <div class="text2">
+                        {{Customer.namectm}}
+                    </div>
+                </div>
+                <div class="text">
+                    <div class="text1">
+                        Phone Numbers:
+                        </div>
+                        <div class="text2">
+                            {{Customer.phone}}
+                        </div>
+                </div>
+                <div class="text">
+                    <div class="text1">
+                        Address:
+                        </div>
+                        <div class="text2">
+                            {{Customer.address_field}}
+                        </div>
+                </div>
+                <div class="text">
+                    <div class="text1">
+                        Email:
+                        </div>
+                        <div class="text2">
+                            {{sigin.email}}
+                        </div>
+                </div>
+            </div>
+        <div class="Edit">
+            <a href="../EnterProfile/"><button class="button_buy">Edit</button></a>
+        </div>
+    </div>
+    
+</div>  
+{% endblock %}

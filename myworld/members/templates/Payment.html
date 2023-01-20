@@ -1,0 +1,72 @@
+{%extends 'template.html' %}
+{% load static %}
+
+{%block mymessage%}
+<link rel="stylesheet" href="{% static 'css/Payment.css' %}">
+<script src="{% static 'js/doneOk.js' %}"></script>
+<div class="Main">
+    <div class="SanPham"> 
+       <div class="SP1"> 
+           <div class="product_name"> 
+               <div class="conten">
+                   Name:
+               </div>
+               <div class="Write">
+                {{Customer.namectm}}
+               </div>
+           </div>
+           <div class="product_name"> 
+               <div class="conten">
+                   Address:
+               </div>
+               <div class="Write">
+                {{Customer.address_field}}
+               </div>
+           </div>
+           <div class="product_name"> 
+               <div class="conten">
+                   Phone Numbers:
+               </div>
+               <div class="Write">
+                {{Customer.phone}}
+               </div>
+           </div>
+         
+       </div>
+       
+       <div class="SP2">
+        {%for x in Cart%}
+           <div class="product">
+               <div class="img">
+                <img src={% static x.idpd.imgpd %}>
+               </div>
+                <div class="Name_PD">{{x.idpd.namepd}} </div>
+                <div class="Amount_PD">{{x.amount}} </div>
+                <div class="Price_PD">{{x.idpd.price}}</div>
+           </div>
+        {%endfor%}
+           <div class="product_name"> 
+               <div class="Sum">Total: </div>
+               <div class="value">  {{Total}} VND </div>
+           </div>
+           
+       </div>
+       <form method="POST">
+        {% csrf_token %}
+           <div class="Tien">
+                <button class="button_buy" {% if not messages %} onclick="buyOk()" {% endif %}>Buy Now</button>
+           </div>
+       </form>
+
+       {% if messages %}
+       <ul class="messages">
+           {% for message in messages %}
+           <li>{{ message }}</li>
+           {% endfor %}
+       </ul>
+       {% endif %}
+       
+       </div>   
+   </div>
+  
+{%endblock%}

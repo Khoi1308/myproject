@@ -1,0 +1,39 @@
+{%extends 'template.html' %}
+{% load static %}
+
+{%block mymessage%}
+<link rel="stylesheet" href="{% static 'css/cartStyle.css' %}">
+<div class="Main">
+    <div class="SanPham"> 
+        {% for x in cart %}
+        <div class="SP"> 
+            <div class="product_img"> 
+                <img src={% static x.idpd.imgpd %}>
+            </div>
+            <div class="product_name"> 
+                {{x.idpd.namepd}}
+            </div>
+            <div class="number">
+                {{x.amount}}
+            </div>
+            <div class="product_price"> 
+                    {{x.idpd.price}}
+            </div>
+            <a class='bx bxs-trash-alt remove_icon' href="../deleteCart/{{x.idpd}}"></a>
+        </div>
+        {% endfor %}
+    </div>    
+    <hr>
+    <div class="Tien">
+        <div class="Total">
+            <div class="Total_tiile">Total:</div>
+            <div class="Toatal_price">{{Toal}} VND</div>
+        </div>
+        {% if Count != 0 %}
+        <a href="../Payment/">
+            <button class="button_buy">Buy</button>
+        </a>
+        {% endif %}
+    </div>
+</div>
+{%endblock%}
